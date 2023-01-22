@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.UUID;
 @RestController
-@RequestMapping("api/v1/students")
+@RequestMapping("students")
 @CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 public class StudentController {
 @GetMapping
