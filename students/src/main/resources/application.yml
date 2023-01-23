@@ -2,3 +2,11 @@ server:
   servlet:
     context-path: /api/v1
   port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/geekydatabase
+    username: postgres
+    password : password
+    pool-size: 30
+    type: com.zaxxer.hikari.HikariDataSource
