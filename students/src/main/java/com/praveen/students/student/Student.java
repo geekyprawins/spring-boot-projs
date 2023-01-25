@@ -9,11 +9,6 @@ public class Student {
     private final String email;
     private final Gender gender;
 
-    enum Gender{
-        MALE,
-        FEMALE
-    }
-
     public Student(UUID studentId, String firstName, String lastName, String email, Gender gender) {
         this.studentId = studentId;
         this.firstName = firstName;
@@ -40,6 +35,11 @@ public class Student {
 
     public Gender getGender() {
         return gender;
+    }
+
+    enum Gender {
+        MALE,
+        FEMALE
     }
 
 }

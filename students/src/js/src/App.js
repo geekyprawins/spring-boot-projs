@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { LoadingOutlined } from "@ant-design/icons";
-import { Table, Avatar, Spin } from "antd";
+import { Table, Avatar, Spin, Modal } from "antd";
 
 import Container from "./Container";
+import Footer from "./Footer";
 
 const getSpinIcon = () => <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
@@ -10,6 +11,17 @@ function App() {
   const [students, setStudents] = useState([]);
 
   const [loading, setLoading] = useState(false);
+
+  const [isAddStudentModalVisible, setIsAddStudentModalVisible] =
+    useState(false);
+
+  const openModal = () => {
+    setIsAddStudentModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setIsAddStudentModalVisible(false);
+  };
 
   useEffect(() => {
     const url = "http://localhost:8081/api/v1/students";
@@ -84,6 +96,18 @@ function App() {
           rowKey="studentId"
           pagination={false}
         />
+        <Modal
+          title="Add new student"
+          open={isAddStudentModalVisible}
+          onOk={closeModal}
+          onCancel={closeModal}
+          width={1000}
+        >
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </Modal>
+        <Footer numberOfStudents={students.length} handleClick={openModal} />
       </Container>
     );
   }
